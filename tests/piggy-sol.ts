@@ -1,6 +1,6 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
-import { Keypair, PublicKey, SystemProgram } from "@solana/web3.js";
+import { Keypair } from "@solana/web3.js";
 import { PiggySol } from "../target/types/piggy_sol";
 import { assert } from "chai";
 

@@ -16,8 +16,8 @@ pub mod piggy_sol {
 
     use super::*;
 
-    pub fn initialize_account(ctx: Context<InitializeAccount>) -> Result<()> {
-        _init_account(ctx)
+    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
+        _initialize(ctx)
     }
 
     pub fn deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {

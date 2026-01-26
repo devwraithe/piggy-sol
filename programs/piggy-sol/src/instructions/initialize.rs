@@ -1,30 +1,27 @@
 use anchor_lang::prelude::*;
 
-use crate::state::UserAccount;
+use crate::state::Vault;
 
 #[derive(Accounts)]
-pub struct InitializeAccount<'info> {
+pub struct Initialize<'info> {
     #[account(mut)]
-    pub user_authority: Signer<'info>,
+    pub authority: Signer<'info>,
+
     #[account(
         init,
-        payer = user_authority,
-        space = 8 + UserAccount::INIT_SPACE,
+        payer = authority,
+        space = 8 + Vault::INIT_SPACE,
     )]
-    pub user_account: Account<'info, UserAccount>,
+    pub vault: Account<'info, Vault>,
+
     pub system_program: Program<'info, System>,
 }
 
-pub fn _init_account(ctx: Context<InitializeAccount>) -> Result<()> {
-    msg!("InitUserAccount: Initialize");
+pub fn _initialize(ctx: Context<Initialize>) -> Result<()> {
+    let vault = &mut ctx.accounts.vault;
 
-    let user_account = &mut ctx.accounts.user_account;
-
-    user_account.user_authority = ctx.accounts.user_authority.key();
-    user_account.balance = 0;
-
-    msg!("InitUserAccount: Complete");
-    msg!("Account Balance: {}", user_account.balance);
+    vault.authority = ctx.accounts.authority.key();
+    vault.balance = 0;
 
     Ok(())
 }

@@ -6,6 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
+malicious-piggy = "CPNcqRiuhdJzTgBLwVL3hMgacKNMBt84tMd6L9K6xD7z"
 piggy_sol = "2RgCQ7K7meNPprtSvXNpdkohA4ude2LpFnratZg8yytR"
 
 [registry]

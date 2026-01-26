@@ -6,8 +6,8 @@ pub enum MyError {
     InvalidDepositAmount,
     #[msg("Invalid withdrawal amount")]
     InvalidWithdrawAmount,
-    #[msg("User account balance is too low")]
-    LowAccountBalance,
-    #[msg("Invalid user authority")]
-    InvalidUserAuthority,
+    #[msg("Vault. balance is too low")]
+    LowVaultBalance,
+    #[msg("Invalid vault authority")]
+    InvalidVaultAuthority,
 }
